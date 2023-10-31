@@ -2,26 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+html {
+    scroll-behavior: initial;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+@layer utilities{
+    .navbar {
+        @apply bg-white pb-4 shadow
+    }
+    .hide_header .navbar {
+        @apply transform -translate-y-[100%]
+    }
+    .nav-logo{
+        @apply text-7xl transition-fontSize ease-in duration-200
+    }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    .scrolled .navbar {
+        @apply pb-2 shadow
+    }
+    .scrolled .nav-logo {
+        @apply text-6xl
+    }
 }
